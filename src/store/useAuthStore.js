@@ -82,7 +82,13 @@ export const useAuthStore = create(
                     set({ authUser: res.data });
                     toast.success("Profile updated successfully");
                 } catch (error) {
-                    toast.error(error.response.data.message);
+                    if (error.response && error.response.status === 413) {
+                        toast.error("File is too large. Max 500KB allowed.");
+                    } else if (error.response?.data?.message) {
+                        toast.error(error.response.data.message);
+                    } else {
+                        toast.error("Something went wrong.");
+                    }
                 } finally {
                     set({ isUpdatingProfile: false });
                 }
@@ -113,7 +119,7 @@ export const useAuthStore = create(
 
         }),
         {
-            name: "auth-storage", 
-            partialize: (state) => ({ authUser: state.authUser }), 
+            name: "auth-storage",
+            partialize: (state) => ({ authUser: state.authUser }),
         }
     ));
