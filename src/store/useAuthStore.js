@@ -83,7 +83,7 @@ export const useAuthStore = create(
                     toast.success("Profile updated successfully");
                 } catch (error) {
                     if (error.response && error.response.status === 413) {
-                        toast.error("File is too large. Max 500KB allowed.");
+                        toast.error("File is too large. Max 5mb allowed.");
                     } else if (error.response?.data?.message) {
                         toast.error(error.response.data.message);
                     } else {
