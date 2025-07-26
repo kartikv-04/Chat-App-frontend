@@ -21,15 +21,24 @@ Live backend: [Chat App Backend Repo](https://github.com/kartikv-04/Chat-App-bac
 
 ```
 frontend/
-└── src/
-    ├── assets/
-    ├── components/
-    ├── pages/
-    ├── context/
-    ├── services/
-    ├── utils/
-    ├── hooks/
-    └── main.jsx
+├── public/
+├── src/
+│   ├── assets/         # Images, icons, static files
+│   ├── components/     # Reusable UI components
+│   ├── constants/      # App-wide constants and enums
+│   ├── lib/            # Helper functions, API configs
+│   ├── pages/          # Route-based pages
+│   ├── store/          # Global state management (e.g. Zustand, Redux)
+│   ├── App.jsx         # Root component
+│   ├── index.css       # Global styles
+│   └── main.jsx        # Entry point for React app
+├── .gitignore
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
 ```
 
 ---
